@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 import ProductManager from './manager/ManagerUsuarios.js'
 
 const producManager= new ProductManager();
@@ -19,5 +21,5 @@ const productManager = async() => {
 
     console.log(usuarios)
 }
-
+fs.unlinkSync('./user.txt')
 productManager();
