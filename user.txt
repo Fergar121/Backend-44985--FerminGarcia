@@ -1,8 +1,0 @@
-(
-        "samsung a20",
-        "samsung a20', 4gb ram",
-        45000,
-        "https://articulo.mercadolibre.com.ar/MLA-1255880257-samsung-galaxy-a20-32-gb-negro-3-gb-ram-reacondicionado-_JM#position=14&search_layout=stack&type=item&tracking_id=5a902e81-b30c-46ad-9d45-ad2a378c0f6d",
-        10,
-        12
-    )
