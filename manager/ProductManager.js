@@ -34,7 +34,7 @@ export default class ProductManager {
         code,
         stock,
       };
-  
+
       const productcode = this.products.find((el) => el.code === code);
   
       if (productcode) {
@@ -68,9 +68,20 @@ export default class ProductManager {
         await fs.promises.writeFile(path, JSON.stringify(productsU, null, '\t'))
         console.log('producto eliminado') 
     }
+
+    updateProduct = async ({idProduct, ...products}) => {
+      await this.deleteProduct(idProduct);
+      let productOld = await this.getProducts()
+      console.log(productOld)
+      let prodModificado = [
+        {idProduct, ...products},
+          ...productOld
+      ];
+      await fs.promises.writeFile(path, JSON.stringify(prodModificado, null, '\t'))
+    };
   }
     
 
-    
+
   
       

@@ -37,7 +37,7 @@ const productManager = async() => {
     console.log(pm.getProductById(2));
     console.log(pm.getProductById(3));
     console.log(pm.deleteProduct(2));
-    
+    console.log(pm.updateProduct(1))
 }
 
 productManager();
