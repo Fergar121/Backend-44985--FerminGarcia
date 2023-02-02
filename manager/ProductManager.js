@@ -12,7 +12,7 @@ export default class ProductManager {
   
     getProducts = async() => {
         try{
-            if(fs.existsSync(path)){
+            if(fs.existsSync(this.path)){
                 const data = await fs.promises.readFile(path, 'utf-8');
                 const products = JSON.parse(path);
             return products;
@@ -53,34 +53,24 @@ export default class ProductManager {
     };
   
     getProductById = (idProduct) => {
-
       const productIndex = this.products.findIndex((e) => e.id === idProduct);
-      
       if (productIndex === -1) {
-      
-      console.log('not found');
-      
-      return;
-      
-      }
-      
-      return this.products[productIndex];
-      
+          console.log('not found');
+          return;
+        }
+        return this.products[productIndex];
       };
 
 
     deleteProduct = async (idProduct) => {
-        const products = this.getProducts();
-        const productsActualizado = this.products.filter(p=>p.id !== idProduct)
-        await fs.promises.writeFile(path, JSON.stringify(productsActualizado, null, '\t'))
+        const productsU = await this.getProducts();
+        const productsActualizado = await productsU.filter(products=>products.id != idProduct)
+        await fs.promises.writeFile(path, JSON.stringify(productsU, null, '\t'))
+        console.log('producto eliminado') 
     }
-
-     updateProduct = (idProduct, values) => {
-      const productIndex = products.findIndex(p => p.id === idProduct);
-       if(productIndex === -1){
-        throw new Error('product not found');
-       }
-       products[productIndex] = { ...products[productIndex],...values, id: idProduct}
-       return products;
-      }
   }
+    
+
+    
+  
+      
